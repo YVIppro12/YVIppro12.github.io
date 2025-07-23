@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trung Tâm Tiên Tri Tâm Linh</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      padding: 40px;
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #2c3e50;
+      animation: fadeIn 0.5s ease-in;
+    }
+    .momo-box {
+      margin-top: 30px;
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #bf360c;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Trung Tâm Tiên Tri Tâm Linh 🔮</h1>
+    <p>Chọn một mục bạn muốn được tiên đoán:</p>
+    <select id="service">
+      <option value="tuvi">Xem tử vi</option>
+      <option value="giacmo">Giải mã giấc mơ</option>
+      <option value="ngaysinh">Bói theo ngày sinh</option>
+      <option value="timdo">Tìm đồ thất lạc</option>
+      <option value="phongthuy">Xem đất / phong thủy</option>
+      <option value="thucung">Thú cưng gieo quẻ</option>
+    </select>
+    <br>
+    <button onclick="xemBoi()">Xem ngay</button>
+
+    <div id="result"></div>
+
+    <div class="momo-box">
+      📲 Phí tùy tâm – chuyển khoản ủng hộ nếu bạn thấy hữu ích:<br>
+      <strong>MoMo: 09xx xxx xxx – [Tên bạn]</strong><br>
+      Nội dung: "Tâm linh + Họ tên"
+    </div>
+  </div>
+
+  <script>
+    const data = {
+      tuvi: [
+        "Năm nay là năm nhiều thay đổi với bạn, hãy chuẩn bị tinh thần để đón nhận cơ hội mới.",
+        "Bạn có số mệnh lãnh đạo, phù hợp làm chủ hoặc dẫn dắt đội nhóm.",
+        "Tử vi cho thấy bạn dễ gặp quý nhân giúp đỡ trong tháng tới."
+      ],
+      giacmo: [
+        "Mơ thấy nước là điềm lành – tài lộc sắp đến.",
+        "Nếu bạn mơ thấy bị rượt đuổi, có thể bạn đang tránh né một nỗi sợ trong cuộc sống.",
+        "Giấc mơ về rắn mang ý nghĩa vừa nguy hiểm vừa chuyển hóa."
+      ],
+      ngaysinh: [
+        "Bạn là người sống nội tâm, giàu cảm xúc và có trực giác mạnh.",
+        "Ngày sinh cho thấy bạn hợp với nghệ thuật, thiết kế, sáng tạo.",
+        "Bạn có mệnh tương hợp với người tuổi Mùi, Hợi và Mão."
+      ],
+      timdo: [
+        "Vật bạn tìm có thể đang ở nơi gần nguồn nước hoặc đồ giấy.",
+        "Hãy kiểm tra lại túi, ví hoặc hộp đồ nhỏ – có thể bạn bỏ quên ở đó.",
+        "Thứ bạn mất đang nằm ở nơi ít ai ngờ tới – thử lại chỗ cũ một lần nữa."
+      ],
+      phongthuy: [
+        "Ngôi nhà hướng Đông Nam sẽ mang lại may mắn cho bạn.",
+        "Tránh đặt gương đối diện cửa ra vào – dễ hao tài.",
+        "Bạn hợp với không gian có nhiều cây xanh và ánh sáng tự nhiên."
+      ],
+      thucung: [
+        "Thú cưng của bạn là quý vật – giúp hút tài khí cho gia chủ.",
+        "Hôm nay nên tắm cho thú cưng để giải trừ khí xấu.",
+        "Thú cưng đang cảm nhận được năng lượng tích cực từ bạn."
+      ]
+    };
+
+    function xemBoi() {
+      const service = document.getElementById("service").value;
+      const list = data[service];
+      const result = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("result").innerHTML = "🔔 <strong>Kết quả:</strong><br><br>" + result;
+    }
+  </script>
+</body>
+</html>
