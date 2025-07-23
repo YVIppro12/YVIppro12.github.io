@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Xem Chỉ Tay | Hair</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 30px; background-color: #f4f4f4; }
+    h1 { color: #c0392b; }
+    .container { background: white; padding: 20px; border-radius: 12px; display: inline-block; box-shadow: 0 0 10px #ccc; }
+    input[type=file] { margin: 15px 0; }
+    #preview { max-width: 300px; margin-top: 10px; display: none; }
+    #result { margin-top: 20px; font-size: 18px; color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Xem Bói Chỉ Tay</h1>
+    <p>Vui lòng chọn ảnh bàn tay của bạn:</p>
+    <input type="file" accept="image/*" onchange="showPreview(event)">
+    <br>
+    <img id="preview">
+    <br>
+    <button onclick="xemBoi()">Xem bói</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function showPreview(event) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const output = document.getElementById('preview');
+        output.src = reader.result;
+        output.style.display = 'block';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function xemBoi() {
+      document.getElementById("result").innerHTML = `
+        💡 Cảm ơn bạn đã gửi ảnh!<br><br>
+        📲 Vui lòng chuyển khoản <strong>10.000đ</strong> qua MoMo/ZaloPay tới số:<br>
+        <strong>📱 09xx xxx xxx (Tên bạn)</strong><br><br>
+        Sau đó gửi ảnh + nội dung "Chỉ tay + tên" qua Zalo hoặc Email.<br><br>
+        🧙‍♂️ Kết quả sẽ được phản hồi thủ công sau khi xác nhận thanh toán.
+      `;
+    }
+  </script>
+</body>
+</html>
