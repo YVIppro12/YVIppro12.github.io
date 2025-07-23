@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Xem Bói Ngày Sinh</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      display: inline-block;
+      animation: fadeIn 1s ease;
+    }
+    h1 {
+      color: #d35400;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 200px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #cf711f;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #2c3e50;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Xem Bói Theo Ngày Sinh</h1>
+    <p>Hãy nhập ngày sinh của bạn:</p>
+    <input type="date" id="dob">
+    <br>
+    <button onclick="xemBoi()">Xem bói</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const loiBoi = [
+      "Bạn là người sống cảm xúc, dễ gần, luôn mang lại năng lượng tích cực cho người khác.",
+      "Bạn có tính cách quyết đoán và khả năng lãnh đạo bẩm sinh.",
+      "Bạn là người sáng tạo, thích sự tự do và có óc tưởng tượng phong phú.",
+      "Bạn mang trong mình sự kiên trì, phù hợp với những công việc đòi hỏi sự tỉ mỉ.",
+      "Bạn có trực giác rất mạnh, đôi khi còn đoán trước được sự việc.",
+      "Bạn là người luôn giúp đỡ người khác, nên dễ tạo được mối quan hệ tốt.",
+      "Bạn có thiên hướng nghệ thuật và dễ thành công trong các lĩnh vực sáng tạo.",
+      "Bạn mạnh mẽ, dám nghĩ dám làm, dễ gặt hái thành công lớn nếu kiên định."
+    ];
+
+    function xemBoi() {
+      const dob = document.getElementById("dob").value;
+      if (!dob) {
+        document.getElementById("result").innerText = "⛔ Vui lòng nhập ngày sinh!";
+        return;
+      }
+      const hash = dob.split("-").join("").split("").reduce((acc, val) => acc + parseInt(val), 0);
+      const index = hash % loiBoi.length;
+      const result = loiBoi[index];
+      document.getElementById("result").innerHTML = "🔐 Dự đoán của bạn:<br><br>" + result;
+    }
+  </script>
+</body>
+</html>
