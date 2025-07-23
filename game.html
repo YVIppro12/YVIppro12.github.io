@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Đoán Số</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    .btn { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>🎲 Game Đoán Số</h1>
+  <p id="msg">Tôi đang nghĩ đến một số từ 1 đến 10</p>
+  <input type="number" id="guess" min="1" max="10">
+  <button class="btn" onclick="checkGuess()">Đoán</button>
+
+  <script>
+    const number = Math.floor(Math.random() * 10) + 1;
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guess').value);
+      const msg = document.getElementById('msg');
+      if (guess === number) msg.textContent = "🎉 Chính xác! Bạn đoán đúng!";
+      else msg.textContent = "Sai rồi, thử lại nhé!";
+    }
+  </script>
+</body>
+</html>
