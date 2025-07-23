@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Xem Bói</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 30px; background-color: #f4f4f4; }
+    h1 { color: #c0392b; }
+    .btn { padding: 10px 20px; margin: 10px; font-size: 16px; }
+    #result { margin-top: 20px; font-size: 18px; color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <h1>🔮 Game Xem Bói Tổng Hợp</h1>
+  <p>Chọn một loại xem bói bên dưới:</p>
+  <button class="btn" onclick="xemChiTay()">👋 Xem chỉ tay</button>
+  <button class="btn" onclick="xemTuongMat()">😊 Xem tướng mặt</button>
+  <button class="btn" onclick="timDoVat()">🔍 Tìm đồ vật bí ẩn</button>
+
+  <div id="result"></div>
+
+  <script>
+    const chiTay = [
+      "Bạn có đường sinh đạo dài – sống thọ, khỏe mạnh.",
+      "Đường trí đạo rõ nét – bạn rất thông minh và quyết đoán.",
+      "Đường tình duyên ngắn – bạn có thể gặp nhiều thử thách trong tình cảm.",
+      "Chỉ tay hình chữ M – bạn có tố chất lãnh đạo và tài lộc."
+    ];
+
+    const tuongMat = [
+      "Bạn có trán cao – người thông thái, học vấn tốt.",
+      "Mắt to sáng – người giàu cảm xúc và trực giác tốt.",
+      "Cằm đầy – hậu vận tốt, sống sung túc về sau.",
+      "Lông mày hình kiếm – mạnh mẽ, quyết đoán và nhiều tham vọng."
+    ];
+
+    const doVat = [
+      "Bạn nên tìm chiếc nhẫn cũ trong nhà – nó mang lại may mắn.",
+      "Một tờ tiền 2k có thể là tín vật may mắn của bạn.",
+      "Hãy giữ bên mình một viên đá nhỏ – sẽ bảo vệ bạn khỏi rủi ro.",
+      "Chiếc móc khóa cũ bạn từng bỏ quên – chính là chìa khóa vận mệnh!"
+    ];
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function xemChiTay() {
+      document.getElementById("result").innerText = "🔍 " + randomItem(chiTay);
+    }
+
+    function xemTuongMat() {
+      document.getElementById("result").innerText = "📸 " + randomItem(tuongMat);
+    }
+
+    function timDoVat() {
+      document.getElementById("result").innerText = "🧿 " + randomItem(doVat);
+    }
+  </script>
+</body>
+</html>
